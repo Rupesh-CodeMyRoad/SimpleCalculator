@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Calculator</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body>
+<div class="text-center">
+<h1 class="alert alert-primary" role="alert">Simple:</h1>
+<form action="#" th:action="@{/calculator}" th:object="${operationModel}" method="POST">
+    <input type="text" th:field="*{a}"/>
+    <input type="text" th:field="*{b}"/>
+    <p>
+        <br>
+        <input type="submit" class="btn btn-primary" name="add" value="+"/>
+        <input type="submit" class="btn btn-primary" name="multiply" value="*"/>
+        <input type="submit" class="btn btn-primary" name="subtract" value="-"/>
+        <input type="submit" class="btn btn-primary" name="divide" value="/"/>
+        <input type="submit" class="btn btn-danger" name="clearSimple" value="C"/>
+    </p>
+
+    <h1 class="alert alert-success" role="alert">Advanced:</h1>
+    <input type="text" th:field="*{c}"/>
+    <p>
+        <br>
+        <input type="submit" class="btn btn-primary" name="fibonacci" value="fib"/>
+        <input type="submit" class="btn btn-primary" name="factorial" value="!"/>
+        <input type="submit" class="btn btn-primary" name="sqrt" value=&#8730 />
+        <input type="submit" class="btn btn-primary" name="power" value="^"/>
+        <input type="submit" class="btn btn-danger" name="clearAdvanced" value="C"/>
+    </p>
+    <h1 class="alert alert-danger" role="alert"><p th:text="'Result: ' + ${result}"/></h1>
+</form>
+</div>
+</body>
+</html>
